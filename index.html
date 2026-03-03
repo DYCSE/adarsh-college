@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adarsh College – आदर्श महाविद्यालय | Reoti, Ballia</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════
+   ROOT & RESET
+══════════════════════════════════════ */
+:root{
+  --night:      #050d1a;
+  --deep:       #081426;
+  --navy:       #0a1f3d;
+  --mid:        #0d2a52;
+  --blue:       #1045a0;
+  --electric:   #2979ff;
+  --sky:        #4fc3f7;
+  --cyan:       #00e5ff;
+  --white:      #ffffff;
+  --offwhite:   #f0f4ff;
+  --light:      #e8eeff;
+  --muted:      #8899bb;
+  --accent:     #ff6b35;
+  --glass:      rgba(255,255,255,0.04);
+  --glass2:     rgba(255,255,255,0.08);
+  --border:     rgba(255,255,255,0.08);
+  --border2:    rgba(41,121,255,0.25);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--night);
+  color:var(--white);
+  overflow-x:hidden;
+}
+::selection{background:rgba(41,121,255,0.35);color:white;}
+
+/* cursor: default system cursor */
+
+/* ══════════════════════════════════════
+   NAV
+══════════════════════════════════════ */
+nav{
+  position:fixed;top:0;width:100%;z-index:1000;
+  height:68px;
+  display:flex;align-items:center;
+  padding:0 4rem;
+  background:rgba(5,13,26,0.75);
+  backdrop-filter:blur(24px) saturate(160%);
+  border-bottom:1px solid var(--border);
+  transition:all 0.4s;
+}
+nav.scrolled{
+  background:rgba(5,13,26,0.95);
+  box-shadow:0 1px 0 var(--border2), 0 20px 60px rgba(0,0,0,0.6);
+}
+.nav-inner{
+  width:100%;max-width:1280px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{
+  text-decoration:none;display:flex;align-items:center;gap:13px;
+}
+.logo-icon{
+  width:40px;height:40px;
+  background:linear-gradient(135deg,var(--electric),var(--sky));
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'DM Serif Display',serif;
+  font-size:1.3rem;color:white;font-weight:400;
+  box-shadow:0 4px 20px rgba(41,121,255,0.4);
+  flex-shrink:0;
+}
+.logo-text .en{
+  font-family:'Outfit',sans-serif;font-weight:700;
+  font-size:1rem;color:white;letter-spacing:0.02em;line-height:1.1;
+}
+.logo-text .hi{
+  font-size:0.68rem;color:rgba(79,195,247,0.9);font-weight:400;letter-spacing:0.04em;
+}
+.logo-text .place{
+  font-size:0.58rem;color:rgba(255,255,255,0.5);letter-spacing:0.06em;
+}
+
+.nav-menu{display:flex;align-items:center;gap:0;list-style:none;}
+.nav-menu a{
+  font-size:0.85rem;font-weight:500;
+  color:rgba(255,255,255,0.6);
+  text-decoration:none;
+  padding:0 1.1rem;height:68px;
+  display:flex;align-items:center;
+  letter-spacing:0.03em;
+  transition:color 0.25s;
+  cursor:none;
+  position:relative;
+}
+.nav-menu a span{
+  position:relative;
+}
+.nav-menu a span::after{
+  content:'';
+  position:absolute;bottom:-4px;left:0;width:0;height:1.5px;
+  background:var(--electric);
+  transition:width 0.3s cubic-bezier(.4,0,.2,1);
+}
+.nav-menu a:hover{color:white;}
+.nav-menu a:hover span::after{width:100%;}
+.nav-menu a.active{color:white;}
+.nav-menu a.active span::after{width:100%;}
+
+.hamburger{display:none;background:none;border:1px solid var(--border2);border-radius:6px;padding:7px;}
+.hamburger span{display:block;width:18px;height:1.5px;background:rgba(255,255,255,0.7);margin:4px 0;transition:0.3s;}
+
+/* ══════════════════════════════════════
+   FLOATING APPLY BUTTON
+══════════════════════════════════════ */
+#floatApply{
+  position:fixed;bottom:2.5rem;right:2.5rem;z-index:900;
+  display:flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,var(--electric),#0d47e6);
+  color:white;
+  padding:0.85rem 1.8rem;
+  border-radius:50px;
+  font-family:'Outfit',sans-serif;font-weight:600;font-size:0.9rem;
+  letter-spacing:0.03em;text-decoration:none;
+  box-shadow:0 8px 32px rgba(41,121,255,0.5), 0 0 0 0 rgba(41,121,255,0.3);
+  animation:applyPulse 2.5s ease-in-out infinite;
+  transition:transform 0.3s,box-shadow 0.3s;
+}
+#floatApply:hover{
+  transform:translateY(-4px) scale(1.04);
+  box-shadow:0 16px 50px rgba(41,121,255,0.65), 0 0 0 0 rgba(41,121,255,0);
+}
+.fa-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--cyan);
+  animation:dotBlink 1.2s ease-in-out infinite;
+}
+@keyframes dotBlink{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.7);}}
+@keyframes applyPulse{
+  0%,100%{box-shadow:0 8px 32px rgba(41,121,255,0.5),0 0 0 0 rgba(41,121,255,0.3);}
+  50%{box-shadow:0 8px 32px rgba(41,121,255,0.5),0 0 0 14px rgba(41,121,255,0);}
+}
+
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+#home{
+  min-height:100vh;
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  background:var(--night);
+}
+
+/* Animated grid background */
+.grid-bg{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(41,121,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg,rgba(41,121,255,0.06) 1px, transparent 1px);
+  background-size:60px 60px;
+  animation:gridMove 20s linear infinite;
+}
+@keyframes gridMove{from{transform:translateY(0);}to{transform:translateY(60px);}}
+
+/* Gradient overlay on grid */
+.grid-mask{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%,rgba(41,121,255,0.18) 0%,transparent 65%),
+    radial-gradient(ellipse 60% 50% at 90% 50%,rgba(0,229,255,0.06) 0%,transparent 55%),
+    radial-gradient(ellipse 100% 80% at 50% 100%,rgba(5,13,26,0.95) 0%,transparent 60%),
+    linear-gradient(180deg,rgba(5,13,26,0) 0%,rgba(5,13,26,0.3) 50%,rgba(5,13,26,1) 100%);
+}
+
+/* Glowing orbs */
+.orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;}
+.o1{width:50vw;height:50vw;background:rgba(41,121,255,0.08);top:-20%;left:-15%;animation:oFloat 15s ease-in-out infinite alternate;}
+.o2{width:35vw;height:35vw;background:rgba(0,229,255,0.05);bottom:-10%;right:0;animation:oFloat 12s ease-in-out infinite alternate-reverse;}
+.o3{width:25vw;height:25vw;background:rgba(41,121,255,0.07);top:30%;right:15%;animation:oFloat 9s ease-in-out infinite alternate;}
+@keyframes oFloat{from{transform:translate(0,0);}to{transform:translate(40px,30px);}}
+
+.hero-content{
+  position:relative;z-index:5;
+  max-width:1280px;margin:0 auto;padding:0 4rem;
+  padding-top:68px;
+}
+
+.h-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(41,121,255,0.12);
+  border:1px solid rgba(41,121,255,0.3);
+  padding:6px 16px;border-radius:50px;
+  font-size:0.75rem;font-weight:500;
+  color:var(--sky);letter-spacing:0.08em;
+  text-transform:uppercase;margin-bottom:2rem;
+  animation:fadeUp 0.9s 0.1s both;
+}
+.h-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--cyan);}
+
+.h-title{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(3rem,7vw,6.5rem);
+  font-weight:400;line-height:1.0;
+  margin-bottom:0.3rem;
+  animation:fadeUp 1s 0.2s both;
+}
+.h-title .line1{
+  display:block;
+  color:#ffffff;
+  text-shadow:0 2px 40px rgba(41,121,255,0.4);
+}
+.h-title .line2{
+  display:block;
+  background:linear-gradient(90deg,#ffffff,var(--cyan),#a8d4ff);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  font-style:italic;
+}
+.h-hindi{
+  font-family:'Outfit',sans-serif;
+  font-size:clamp(1rem,2vw,1.6rem);
+  font-weight:400;color:rgba(255,255,255,0.75);
+  letter-spacing:0.08em;margin-bottom:0.5rem;
+  animation:fadeUp 1s 0.3s both;
+  display:block;
+}
+.h-address{
+  font-size:0.85rem;color:rgba(79,195,247,0.75);
+  letter-spacing:0.1em;text-transform:uppercase;
+  margin-bottom:2.5rem;
+  animation:fadeUp 1s 0.4s both;
+  display:block;
+  font-weight:400;
+}
+
+.h-tagline{
+  font-size:clamp(1.05rem,1.8vw,1.35rem);
+  font-weight:300;color:rgba(255,255,255,0.55);
+  max-width:600px;line-height:1.8;
+  margin-bottom:3rem;
+  animation:fadeUp 1s 0.5s both;
+}
+.h-tagline strong{color:rgba(255,255,255,0.85);font-weight:500;}
+
+.h-btns{
+  display:flex;gap:1rem;flex-wrap:wrap;
+  animation:fadeUp 1s 0.65s both;
+}
+.btn-primary2{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--electric);color:white;
+  padding:0.9rem 2.2rem;border-radius:8px;
+  font-weight:600;font-size:0.95rem;letter-spacing:0.02em;
+  text-decoration:none;
+  position:relative;overflow:hidden;
+  transition:transform 0.3s,box-shadow 0.3s;
+  box-shadow:0 6px 30px rgba(41,121,255,0.4);
+}
+.btn-primary2::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent 60%);
+  transform:translateX(-100%) skewX(-20deg);
+  transition:transform 0.6s;
+}
+.btn-primary2:hover::before{transform:translateX(200%) skewX(-20deg);}
+.btn-primary2:hover{transform:translateY(-3px);box-shadow:0 14px 50px rgba(41,121,255,0.6);}
+
+.btn-ghost2{
+  display:inline-flex;align-items:center;gap:10px;
+  background:transparent;color:rgba(255,255,255,0.75);
+  padding:0.9rem 2.2rem;border-radius:8px;
+  font-weight:500;font-size:0.95rem;letter-spacing:0.02em;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,0.15);
+  transition:all 0.3s;
+}
+.btn-ghost2:hover{
+  background:rgba(255,255,255,0.06);
+  border-color:rgba(255,255,255,0.35);
+  color:white;transform:translateY(-3px);
+}
+
+/* scroll cue */
+.scroll-cue{
+  position:absolute;bottom:2.5rem;left:4rem;
+  display:flex;align-items:center;gap:12px;
+  animation:fadeUp 1s 1.2s both;z-index:5;
+}
+.scroll-line{
+  width:40px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--electric));
+  animation:scLineGrow 2s ease-in-out infinite alternate;
+}
+@keyframes scLineGrow{from{width:20px;opacity:0.3;}to{width:55px;opacity:0.8;}}
+.scroll-cue span{
+  font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(255,255,255,0.25);
+}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(35px);}to{opacity:1;transform:translateY(0);}}
+
+/* ══════════════════════════════════════
+   COMMON SECTION
+══════════════════════════════════════ */
+.sec{padding:110px 0;position:relative;overflow:hidden;}
+.sec.light-bg{background:#ffffff;color:var(--night);}
+.sec.subtle-bg{background:#f4f7ff;color:var(--night);}
+.sec.dark-bg{background:var(--deep);color:white;}
+.sec.darker-bg{background:var(--night);color:white;}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 4rem;}
+
+.label-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:0.72rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--electric);margin-bottom:1rem;
+  opacity:0;transform:translateY(20px);
+  transition:opacity 0.7s,transform 0.7s;
+}
+.label-tag::before{content:'';width:24px;height:2px;background:var(--electric);}
+.label-tag.vis{opacity:1;transform:translateY(0);}
+.label-tag.on-light{color:var(--blue);}
+.label-tag.on-light::before{background:var(--blue);}
+
+.sec-title{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(2.2rem,4vw,3.8rem);
+  font-weight:400;line-height:1.15;
+  margin-bottom:1rem;
+  opacity:0;transform:translateY(25px);
+  transition:opacity 0.7s 0.1s,transform 0.7s 0.1s;
+}
+.sec-title.vis{opacity:1;transform:translateY(0);}
+.sec-title em{font-style:italic;color:var(--electric);}
+.sec-title.on-light em{color:var(--blue);}
+.sec-title.on-light{color:var(--navy);}
+
+.sec-desc{
+  font-size:1.05rem;font-weight:300;line-height:1.85;
+  max-width:580px;margin-bottom:4rem;color:var(--muted);
+  opacity:0;transform:translateY(20px);
+  transition:opacity 0.7s 0.2s,transform 0.7s 0.2s;
+}
+.sec-desc.vis{opacity:1;transform:translateY(0);}
+.sec-desc.on-light{color:#55668a;}
+
+.reveal2{
+  opacity:0;transform:translateY(40px);
+  transition:opacity 0.75s,transform 0.75s;
+}
+.reveal2.vis{opacity:1;transform:translateY(0);}
+.reveal2.from-l{transform:translateX(-40px);}
+.reveal2.from-l.vis{transform:translateX(0);}
+.reveal2.from-r{transform:translateX(40px);}
+.reveal2.from-r.vis{transform:translateX(0);}
+
+
+
+/* ══════════════════════════════════════
+   ABOUT
+══════════════════════════════════════ */
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:6rem;align-items:start;
+}
+.about-visual-wrap{position:relative;}
+.about-visual{
+  border-radius:16px;overflow:hidden;
+  background:linear-gradient(135deg,var(--mid),var(--blue),#0a2060);
+  aspect-ratio:3/4;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:2.5rem;
+  position:relative;
+}
+.about-visual::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 30% 20%,rgba(41,121,255,0.3),transparent 50%),
+    radial-gradient(circle at 80% 80%,rgba(0,229,255,0.15),transparent 50%);
+}
+.av-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
+  background-size:40px 40px;
+}
+.av-year{
+  position:absolute;top:2rem;right:2rem;
+  font-family:'DM Serif Display',serif;
+  font-size:6rem;font-weight:400;
+  color:rgba(255,255,255,0.06);line-height:1;
+}
+.av-badge{
+  position:absolute;top:2rem;left:2rem;
+  background:rgba(41,121,255,0.2);
+  border:1px solid rgba(41,121,255,0.4);
+  padding:5px 14px;border-radius:50px;
+  font-size:0.72rem;font-weight:600;letter-spacing:0.12em;
+  color:var(--sky);text-transform:uppercase;
+}
+.av-text{position:relative;z-index:1;}
+.av-text h3{
+  font-family:'DM Serif Display',serif;
+  font-size:1.9rem;color:white;margin-bottom:0.6rem;
+  font-weight:400;
+}
+.av-text p{font-size:0.9rem;color:rgba(255,255,255,0.55);line-height:1.7;font-weight:300;}
+
+.av-chip{
+  position:absolute;right:-22px;top:18%;
+  background:var(--electric);
+  color:white;padding:1rem 1.2rem;
+  border-radius:12px;text-align:center;
+  box-shadow:0 12px 40px rgba(41,121,255,0.5);
+  animation:chipFloat 4s ease-in-out infinite;
+}
+.av-chip .big{font-family:'DM Serif Display',serif;font-size:2.2rem;line-height:1;display:block;}
+.av-chip .sm{font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;opacity:0.8;}
+@keyframes chipFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+
+/* timeline */
+.tl2{margin:0;}
+.tl2-item{
+  display:flex;gap:1.5rem;padding-bottom:2.2rem;position:relative;
+}
+.tl2-item::before{
+  content:'';position:absolute;left:9px;top:22px;bottom:0;width:1px;
+  background:linear-gradient(180deg,var(--border2),transparent);
+}
+.tl2-item:last-child::before{display:none;}
+.tl2-dot{
+  width:20px;height:20px;border-radius:50%;flex-shrink:0;
+  border:1.5px solid var(--electric);background:var(--deep);
+  display:flex;align-items:center;justify-content:center;margin-top:2px;
+}
+.tl2-dot::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--electric);}
+.tl2-yr{font-size:0.72rem;font-weight:700;color:var(--electric);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:3px;}
+.tl2-h{font-weight:600;font-size:1rem;color:var(--night);margin-bottom:3px;}
+.tl2-p{font-size:0.88rem;color:#55668a;line-height:1.7;font-weight:300;}
+
+.mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2.5rem;}
+.mv-card2{
+  padding:1.5rem;border-radius:10px;
+  background:white;
+  border:1px solid rgba(41,121,255,0.12);
+  transition:all 0.35s;
+  position:relative;overflow:hidden;
+}
+.mv-card2::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2.5px;
+  background:linear-gradient(90deg,var(--electric),var(--cyan));
+  transform:scaleX(0);transform-origin:left;transition:transform 0.4s;
+}
+.mv-card2:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(41,121,255,0.12);}
+.mv-card2:hover::before{transform:scaleX(1);}
+.mv-card2-icon{font-size:1.6rem;margin-bottom:0.7rem;}
+.mv-card2 h3{font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:0.4rem;}
+.mv-card2 p{font-size:0.85rem;color:#55668a;line-height:1.7;font-weight:300;}
+
+/* ══════════════════════════════════════
+   PROGRAM
+══════════════════════════════════════ */
+.prog-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:5rem;align-items:start;}
+
+.subj-grid2{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin:2rem 0;}
+.subj2{
+  padding:1rem 1.2rem;border-radius:8px;
+  border:1px solid var(--border);background:var(--glass);
+  transition:all 0.35s;position:relative;overflow:hidden;
+}
+.subj2::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(41,121,255,0.1),rgba(0,229,255,0.05));
+  opacity:0;transition:opacity 0.3s;
+}
+.subj2:hover{border-color:rgba(41,121,255,0.4);transform:translateX(4px);}
+.subj2:hover::after{opacity:1;}
+.subj2 h4{font-size:0.9rem;font-weight:600;color:white;position:relative;z-index:1;}
+.subj2 p{font-size:0.75rem;color:var(--muted);margin-top:2px;position:relative;z-index:1;font-weight:300;}
+
+.info-panel{
+  background:var(--glass2);
+  border:1px solid var(--border2);
+  border-radius:12px;padding:2rem;
+  position:sticky;top:90px;
+  backdrop-filter:blur(10px);
+}
+.ip-title{
+  font-family:'DM Serif Display',serif;
+  font-size:1.4rem;color:white;margin-bottom:1.5rem;
+  padding-bottom:1rem;
+  border-bottom:1px solid var(--border);
+}
+.ip-row{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:0.65rem 0;border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.ip-row .lbl{font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;font-weight:400;}
+.ip-row .val{font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.9);text-align:right;max-width:55%;}
+
+.elig2{list-style:none;margin-top:1.5rem;}
+.elig2 li{
+  display:flex;gap:10px;padding:0.55rem 0;
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  font-size:0.85rem;color:rgba(255,255,255,0.55);
+  align-items:flex-start;font-weight:300;
+}
+.elig2 li::before{content:'→';color:var(--electric);flex-shrink:0;margin-top:1px;}
+
+.career-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:1.2rem;}
+.cpill{
+  background:rgba(41,121,255,0.1);color:var(--sky);
+  padding:4px 12px;border-radius:50px;font-size:0.74rem;font-weight:500;
+  border:1px solid rgba(41,121,255,0.2);transition:all 0.25s;
+}
+.cpill:hover{background:rgba(41,121,255,0.2);border-color:var(--electric);}
+
+/* ══════════════════════════════════════
+   ADMISSIONS
+══════════════════════════════════════ */
+.adm-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;}
+
+.step2-list{counter-reset:st;}
+.step2{
+  display:flex;gap:1.4rem;padding-bottom:2.2rem;position:relative;
+  counter-increment:st;
+}
+.step2::before{
+  content:'';position:absolute;left:18px;top:40px;
+  width:1px;height:calc(100% - 20px);
+  background:linear-gradient(180deg,rgba(41,121,255,0.35),transparent);
+}
+.step2:last-child::before{display:none;}
+.step2-num{
+  width:38px;height:38px;border-radius:50%;flex-shrink:0;
+  background:var(--electric);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:0.9rem;color:white;
+  box-shadow:0 6px 20px rgba(41,121,255,0.35);
+  position:relative;z-index:1;
+}
+.step2-body h4{font-weight:600;font-size:1rem;color:var(--night);margin-bottom:3px;}
+.step2-body p{font-size:0.87rem;color:#55668a;line-height:1.7;font-weight:300;}
+
+table.dtable{width:100%;border-collapse:collapse;margin:1.5rem 0;border-radius:10px;overflow:hidden;}
+.dtable th{
+  background:var(--navy);color:rgba(255,255,255,0.9);
+  padding:0.8rem 1rem;font-size:0.82rem;font-weight:600;
+  letter-spacing:0.06em;text-align:left;
+}
+.dtable td{
+  padding:0.75rem 1rem;font-size:0.87rem;color:var(--night);
+  border-bottom:1px solid rgba(41,121,255,0.08);
+  font-weight:300;
+}
+.dtable tr:nth-child(even) td{background:rgba(41,121,255,0.04);}
+.dtable tr:hover td{background:rgba(41,121,255,0.07)!important;}
+.dtable td:last-child{color:var(--blue);font-weight:600;}
+
+.docs2{list-style:none;margin:1rem 0;}
+.docs2 li{
+  display:flex;align-items:center;gap:10px;
+  padding:0.6rem 0.9rem;border-radius:6px;
+  margin-bottom:0.4rem;
+  background:rgba(41,121,255,0.04);
+  border-left:2.5px solid var(--electric);
+  font-size:0.88rem;color:var(--night);font-weight:300;
+  transition:all 0.25s;
+}
+.docs2 li:hover{background:rgba(41,121,255,0.08);transform:translateX(4px);}
+.docs2 li::before{content:'✓';color:var(--electric);font-weight:700;flex-shrink:0;}
+
+/* form */
+.form-card2{
+  background:white;border-radius:14px;
+  padding:2.5rem;
+  box-shadow:0 4px 40px rgba(41,121,255,0.08);
+  border:1px solid rgba(41,121,255,0.1);
+}
+.form-card2 h3{
+  font-family:'DM Serif Display',serif;
+  font-size:1.6rem;color:var(--navy);margin-bottom:2rem;font-weight:400;
+}
+.fg2{margin-bottom:1.2rem;}
+.fg2 label{
+  display:block;font-size:0.72rem;font-weight:700;
+  color:var(--blue);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;
+}
+.fg2 input,.fg2 select,.fg2 textarea{
+  width:100%;padding:0.75rem 1rem;
+  border:1.5px solid rgba(41,121,255,0.15);
+  border-radius:8px;font-family:'Outfit',sans-serif;font-size:0.95rem;
+  color:var(--night);background:#fafbff;
+  transition:all 0.3s;
+  -webkit-appearance:none;appearance:none;
+}
+.fg2 input:focus,.fg2 select:focus,.fg2 textarea:focus{
+  outline:none;border-color:var(--electric);background:white;
+  box-shadow:0 0 0 4px rgba(41,121,255,0.08);
+}
+.fg2-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.btn-sub2{
+  width:100%;padding:1rem;
+  background:var(--electric);color:white;border:none;border-radius:8px;
+  font-family:'Outfit',sans-serif;font-size:1rem;font-weight:700;
+  letter-spacing:0.04em;
+  transition:all 0.3s;position:relative;overflow:hidden;
+}
+.btn-sub2::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent);
+  transform:translateX(-100%) skewX(-20deg);transition:transform 0.5s;
+}
+.btn-sub2:hover::before{transform:translateX(200%) skewX(-20deg);}
+.btn-sub2:hover{background:#1565e0;transform:translateY(-2px);box-shadow:0 10px 40px rgba(41,121,255,0.4);}
+
+/* ══════════════════════════════════════
+   FACULTY
+══════════════════════════════════════ */
+.fac-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.8rem;}
+.fac-card{
+  border-radius:12px;overflow:hidden;
+  border:1px solid var(--border);
+  background:var(--glass);
+  transition:all 0.4s;
+}
+.fac-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 30px 70px rgba(0,0,0,0.3),0 0 0 1px rgba(41,121,255,0.3);
+  border-color:rgba(41,121,255,0.35);
+}
+.fac-photo{
+  height:185px;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.fac-photo::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:50%;
+  background:linear-gradient(to top,rgba(8,20,38,0.8),transparent);z-index:1;
+}
+.fav{
+  width:80px;height:80px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'DM Serif Display',serif;font-size:1.9rem;color:rgba(255,255,255,0.9);
+  border:2px solid rgba(255,255,255,0.15);
+  transition:transform 0.4s;
+}
+.fac-card:hover .fav{transform:scale(1.1);}
+/* gradient backgrounds per card */
+.fb1{background:linear-gradient(135deg,#0d2a52,#1045a0);}
+.fb2{background:linear-gradient(135deg,#0a1f0a,#1a5520);}
+.fb3{background:linear-gradient(135deg,#2a0a2a,#6a1a6a);}
+.fb4{background:linear-gradient(135deg,#0a1a3a,#1a3a8a);}
+.fb5{background:linear-gradient(135deg,#3a2a0a,#8a6a1a);}
+.fb6{background:linear-gradient(135deg,#0a2a2a,#0a6a6a);}
+.fb7{background:linear-gradient(135deg,#2a0a1a,#7a1a4a);}
+.fb8{background:linear-gradient(135deg,#1a0a00,#5a2a00);}
+
+.fac-body{padding:1.3rem;}
+.fac-body h3{font-weight:700;font-size:1rem;color:white;margin-bottom:2px;}
+.fac-desg{font-size:0.78rem;color:var(--sky);font-weight:600;margin-bottom:2px;}
+.fac-dept{font-size:0.75rem;color:var(--muted);}
+.fac-qual{
+  font-size:0.75rem;color:var(--muted);font-weight:300;font-style:italic;
+  padding-top:0.7rem;margin-top:0.7rem;
+  border-top:1px solid var(--border);
+}
+.fac-tags2{display:flex;flex-wrap:wrap;gap:5px;margin-top:0.6rem;}
+.ftag2{font-size:0.7rem;padding:2px 9px;border-radius:4px;background:rgba(41,121,255,0.12);color:var(--sky);border:1px solid rgba(41,121,255,0.2);}
+
+/* ══════════════════════════════════════
+   CAMPUS
+══════════════════════════════════════ */
+.campus-grid2{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.campus-card2{
+  border-radius:12px;overflow:hidden;
+  background:white;
+  border:1px solid rgba(41,121,255,0.1);
+  transition:all 0.4s;
+}
+.campus-card2:hover{
+  transform:translateY(-8px);
+  box-shadow:0 25px 60px rgba(41,121,255,0.12);
+  border-color:rgba(41,121,255,0.3);
+}
+.cc-top{
+  height:155px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.cc-emoji{font-size:3.2rem;position:relative;z-index:1;transition:transform 0.4s;}
+.campus-card2:hover .cc-emoji{transform:scale(1.2) rotate(-5deg);}
+.cc1b{background:linear-gradient(135deg,#e8f0ff,#d0e0ff);}
+.cc2b{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);}
+.cc3b{background:linear-gradient(135deg,#fff3e0,#ffe0b2);}
+.cc4b{background:linear-gradient(135deg,#f3e5f5,#e1bee7);}
+.cc5b{background:linear-gradient(135deg,#e0f7fa,#b2ebf2);}
+.cc6b{background:linear-gradient(135deg,#fce4ec,#f8bbd0);}
+.cc-body{padding:1.3rem;}
+.cc-body h3{font-weight:700;font-size:1.05rem;color:var(--navy);margin-bottom:0.5rem;}
+.cc-body p{font-size:0.85rem;color:#55668a;line-height:1.75;font-weight:300;}
+
+/* ══════════════════════════════════════
+   CONTACT
+══════════════════════════════════════ */
+.contact-grid2{display:grid;grid-template-columns:1fr 1.5fr;gap:5rem;}
+.ci2{display:flex;gap:1.2rem;margin-bottom:2.2rem;align-items:flex-start;}
+.ci2-icon{
+  width:46px;height:46px;border-radius:10px;flex-shrink:0;
+  background:rgba(41,121,255,0.1);border:1px solid rgba(41,121,255,0.2);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+  transition:all 0.3s;
+}
+.ci2:hover .ci2-icon{background:rgba(41,121,255,0.2);box-shadow:0 0 20px rgba(41,121,255,0.2);}
+.ci2 h4{font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--sky);margin-bottom:4px;}
+.ci2 p{color:rgba(255,255,255,0.5);font-size:0.9rem;line-height:1.8;font-weight:300;}
+.map-wrap{
+  width:100%;height:210px;border-radius:10px;overflow:hidden;
+  border:1px solid rgba(41,121,255,0.15);margin-top:2rem;
+}
+.map-wrap iframe{width:100%;height:100%;border:none;filter:brightness(0.8) saturate(0.8);}
+
+.cfm2{
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--border);border-radius:14px;padding:2.5rem;
+  backdrop-filter:blur(10px);
+}
+.cfm2 h3{
+  font-family:'DM Serif Display',serif;font-size:1.6rem;
+  color:white;margin-bottom:2rem;font-weight:400;
+}
+.cfm2 .fg2 label{color:var(--sky);opacity:0.7;}
+.cfm2 .fg2 input,.cfm2 .fg2 select,.cfm2 .fg2 textarea{
+  background:rgba(255,255,255,0.05);
+  border-color:rgba(255,255,255,0.1);color:white;
+}
+.cfm2 .fg2 input:focus,.cfm2 .fg2 select:focus,.cfm2 .fg2 textarea:focus{
+  background:rgba(255,255,255,0.08);border-color:var(--electric);
+  box-shadow:0 0 0 4px rgba(41,121,255,0.08);
+}
+.cfm2 .fg2 input::placeholder,.cfm2 .fg2 textarea::placeholder{color:rgba(255,255,255,0.2);}
+.cfm2 .fg2 select option{background:#0a1f3d;color:white;}
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+footer{
+  background:#020810;
+  border-top:1px solid var(--border);
+  padding:2rem 4rem;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.footer-brand .en2{
+  font-family:'DM Serif Display',serif;font-size:1.1rem;color:rgba(255,255,255,0.8);
+}
+.footer-brand .hi2{font-size:0.78rem;color:rgba(79,195,247,0.4);display:block;margin-top:2px;font-weight:300;}
+.footer-mid{font-size:0.78rem;color:rgba(255,255,255,0.2);text-align:center;}
+.footer-nav{display:flex;gap:1.5rem;}
+.footer-nav a{font-size:0.78rem;color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.25s;}
+.footer-nav a:hover{color:var(--sky);}
+
+/* ══════════════════════════════════════
+   TOAST
+══════════════════════════════════════ */
+#toastMsg{
+  position:fixed;bottom:8rem;right:2.5rem;z-index:9999;
+  background:var(--deep);color:white;
+  padding:1.1rem 1.8rem;border-radius:10px;
+  border-left:3px solid var(--electric);
+  box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 0 1px var(--border);
+  transform:translateX(calc(100% + 3rem));
+  transition:transform 0.5s cubic-bezier(.4,0,.2,1);
+  font-size:0.92rem;font-weight:400;max-width:280px;
+}
+#toastMsg.show{transform:translateX(0);}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media(max-width:1024px){
+  .about-grid,.prog-grid,.adm-grid,.contact-grid2{grid-template-columns:1fr;gap:3rem;}
+  .av-chip{display:none;}
+  .mv-grid,.subj-grid2,.fg2-row{grid-template-columns:1fr;}
+  nav{padding:0 1.5rem;}
+  .wrap{padding:0 1.5rem;}
+  .hero-content{padding:0 1.5rem;padding-top:68px;}
+  footer{padding:1.5rem;flex-direction:column;text-align:center;}
+  .footer-nav{justify-content:center;}
+  .nav-menu{
+    display:none;flex-direction:column;
+    position:absolute;top:68px;left:0;right:0;
+    background:rgba(5,13,26,0.98);
+    border-top:1px solid var(--border);
+    backdrop-filter:blur(20px);
+  }
+  .nav-menu.open{display:flex;}
+  .nav-menu a{height:auto;padding:1rem 1.5rem;border-bottom:1px solid var(--border);}
+  .hamburger{display:block;}
+  .scroll-cue{left:1.5rem;}
+}
+@media(max-width:640px){
+  .campus-grid2,.fac-grid{grid-template-columns:1fr;}
+  .sec{padding:70px 0;}
+  #floatApply{bottom:1rem;right:1rem;padding:0.75rem 1.4rem;font-size:0.85rem;}
+}
+a,button,input,select,textarea{}
+
+/* ══ PHOTO SECTION ══ */
+.era-section{padding:100px 0;background:var(--deep);position:relative;overflow:hidden;}
+.era-section::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(41,121,255,0.12),transparent 70%);}
+.era-wrap{max-width:1280px;margin:0 auto;padding:0 4rem;position:relative;z-index:1;}
+.era-header{text-align:center;margin-bottom:4rem;}
+.era-label{display:inline-flex;align-items:center;gap:8px;background:rgba(41,121,255,0.1);border:1px solid rgba(41,121,255,0.25);padding:5px 16px;border-radius:50px;font-size:0.72rem;font-weight:600;letter-spacing:0.15em;color:var(--sky);text-transform:uppercase;margin-bottom:1.2rem;}
+.era-title{font-family:"DM Serif Display",serif;font-size:clamp(2rem,4vw,3.5rem);color:white;font-weight:400;line-height:1.15;margin-bottom:1rem;}
+.era-title em{font-style:italic;color:var(--cyan);}
+.era-subtitle{font-size:1rem;color:var(--muted);font-weight:300;max-width:520px;margin:0 auto;line-height:1.8;}
+
+.photo-mosaic{display:grid;grid-template-columns:1.2fr 1fr;gap:1.5rem;margin-bottom:3rem;}
+.photo-main{position:relative;border-radius:20px;overflow:hidden;height:520px;border:1px solid rgba(255,255,255,0.06);box-shadow:0 20px 60px rgba(0,0,0,0.4);transition:box-shadow 0.4s,border-color 0.4s;}
+.photo-main img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 0.7s cubic-bezier(.4,0,.2,1);}
+.photo-main:hover img{transform:scale(1.04);}
+.photo-main::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(5,13,26,0.85) 100%);}
+.photo-main:hover{border-color:rgba(41,121,255,0.4);box-shadow:0 30px 80px rgba(0,0,0,0.5),0 0 0 1px rgba(41,121,255,0.2);}
+.photo-main-overlay{position:absolute;bottom:0;left:0;right:0;padding:2rem;z-index:2;}
+.photo-main-overlay h3{font-family:"DM Serif Display",serif;font-size:1.6rem;color:white;margin-bottom:0.4rem;font-weight:400;}
+.photo-main-overlay p{font-size:0.85rem;color:rgba(255,255,255,0.6);font-weight:300;line-height:1.6;}
+.photo-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(41,121,255,0.3);backdrop-filter:blur(10px);border:1px solid rgba(41,121,255,0.4);padding:4px 12px;border-radius:50px;font-size:0.72rem;color:var(--sky);font-weight:500;margin-bottom:0.8rem;letter-spacing:0.06em;}
+
+.photo-side{display:flex;flex-direction:column;gap:1.5rem;}
+.photo-secondary{position:relative;border-radius:16px;overflow:hidden;flex:1;border:1px solid rgba(255,255,255,0.06);box-shadow:0 20px 60px rgba(0,0,0,0.4);transition:box-shadow 0.4s,border-color 0.4s;}
+.photo-secondary img{width:100%;height:100%;object-fit:cover;transition:transform 0.7s cubic-bezier(.4,0,.2,1);}
+.photo-secondary:hover img{transform:scale(1.05);}
+.photo-secondary::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(5,13,26,0.8) 100%);}
+.photo-secondary:hover{border-color:rgba(41,121,255,0.4);box-shadow:0 30px 80px rgba(0,0,0,0.5);}
+.photo-secondary-overlay{position:absolute;bottom:0;left:0;right:0;padding:1.5rem;z-index:2;}
+.photo-secondary-overlay h4{font-family:"DM Serif Display",serif;font-size:1.1rem;color:white;font-weight:400;margin-bottom:3px;}
+.photo-secondary-overlay p{font-size:0.78rem;color:rgba(255,255,255,0.55);font-weight:300;}
+
+.era-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:14px;overflow:hidden;}
+.era-stat{background:var(--glass2);padding:1.8rem 1.5rem;text-align:center;transition:background 0.3s;}
+.era-stat:hover{background:rgba(41,121,255,0.08);}
+.es-num{font-family:"DM Serif Display",serif;font-size:2.4rem;color:white;line-height:1;margin-bottom:0.3rem;}
+.es-num span{font-size:1.4rem;color:var(--cyan);}
+.es-label{font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;}
+
+@media(max-width:1024px){
+  .photo-mosaic{grid-template-columns:1fr;}
+  .photo-main{height:320px;}
+  .era-stats{grid-template-columns:repeat(2,1fr);}
+  .era-wrap{padding:0 1.5rem;}
+  .era-section{padding:70px 0;}
+}
+@media(max-width:640px){
+  .era-stats{grid-template-columns:repeat(2,1fr);}
+}
+.era-section{padding:100px 0;background:var(--deep);position:relative;overflow:hidden;}
+.era-section::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(41,121,255,0.12),transparent 70%);}
+.era-wrap{max-width:1280px;margin:0 auto;padding:0 4rem;position:relative;z-index:1;}
+.era-header{text-align:center;margin-bottom:4rem;}
+.era-label{display:inline-flex;align-items:center;gap:8px;background:rgba(41,121,255,0.1);border:1px solid rgba(41,121,255,0.25);padding:5px 16px;border-radius:50px;font-size:0.72rem;font-weight:600;letter-spacing:0.15em;color:var(--sky);text-transform:uppercase;margin-bottom:1.2rem;}
+.era-title{font-family:"DM Serif Display",serif;font-size:clamp(2rem,4vw,3.5rem);color:white;font-weight:400;line-height:1.15;margin-bottom:1rem;}
+.era-title em{font-style:italic;color:var(--cyan);}
+.era-subtitle{font-size:1rem;color:var(--muted);font-weight:300;max-width:520px;margin:0 auto;line-height:1.8;}
+.photo-mosaic{display:grid;grid-template-columns:1.2fr 1fr;gap:1.5rem;margin-bottom:3rem;}
+.photo-main{position:relative;border-radius:20px;overflow:hidden;height:520px;border:1px solid rgba(255,255,255,0.06);box-shadow:0 20px 60px rgba(0,0,0,0.4);transition:box-shadow 0.4s,border-color 0.4s;}
+.photo-main img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 0.7s cubic-bezier(.4,0,.2,1);}
+.photo-main:hover img{transform:scale(1.04);}
+.photo-main::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(5,13,26,0.85) 100%);}
+.photo-main:hover{border-color:rgba(41,121,255,0.4);box-shadow:0 30px 80px rgba(0,0,0,0.5),0 0 0 1px rgba(41,121,255,0.2);}
+.photo-main-overlay{position:absolute;bottom:0;left:0;right:0;padding:2rem;z-index:2;}
+.photo-main-overlay h3{font-family:"DM Serif Display",serif;font-size:1.6rem;color:white;margin-bottom:0.4rem;font-weight:400;}
+.photo-main-overlay p{font-size:0.85rem;color:rgba(255,255,255,0.6);font-weight:300;line-height:1.6;}
+.photo-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(41,121,255,0.3);backdrop-filter:blur(10px);border:1px solid rgba(41,121,255,0.4);padding:4px 12px;border-radius:50px;font-size:0.72rem;color:var(--sky);font-weight:500;margin-bottom:0.8rem;letter-spacing:0.06em;}
+.photo-side{display:flex;flex-direction:column;gap:1.5rem;}
+.photo-secondary{position:relative;border-radius:16px;overflow:hidden;flex:1;min-height:520px;border:1px solid rgba(255,255,255,0.06);box-shadow:0 20px 60px rgba(0,0,0,0.4);transition:box-shadow 0.4s,border-color 0.4s;}
+.photo-secondary img{width:100%;height:100%;object-fit:cover;transition:transform 0.7s cubic-bezier(.4,0,.2,1);}
+.photo-secondary:hover img{transform:scale(1.05);}
+.photo-secondary::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(5,13,26,0.8) 100%);}
+.photo-secondary:hover{border-color:rgba(41,121,255,0.4);box-shadow:0 30px 80px rgba(0,0,0,0.5);}
+.photo-secondary-overlay{position:absolute;bottom:0;left:0;right:0;padding:1.5rem;z-index:2;}
+.photo-secondary-overlay h4{font-family:"DM Serif Display",serif;font-size:1.1rem;color:white;font-weight:400;margin-bottom:3px;}
+.photo-secondary-overlay p{font-size:0.78rem;color:rgba(255,255,255,0.55);font-weight:300;}
+.era-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:14px;overflow:hidden;}
+.era-stat{background:var(--glass2);padding:1.8rem 1.5rem;text-align:center;transition:background 0.3s;}
+.era-stat:hover{background:rgba(41,121,255,0.08);}
+.es-num{font-family:"DM Serif Display",serif;font-size:2.4rem;color:white;line-height:1;margin-bottom:0.3rem;}
+.es-num span{font-size:1.4rem;color:var(--cyan);}
+.es-label{font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;}
+@media(max-width:1024px){
+  .photo-mosaic{grid-template-columns:1fr;}
+  .photo-main{height:320px;}
+  .photo-secondary{min-height:280px;}
+  .era-stats{grid-template-columns:repeat(2,1fr);}
+  .era-wrap{padding:0 1.5rem;}
+  .era-section{padding:70px 0;}
+}
+@media(max-width:640px){
+  .era-stats{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+
+<!-- cursor removed -->
+
+<!-- FLOATING APPLY -->
+<a href="#onlineForm" id="floatApply">
+  <span class="fa-dot"></span>
+  Apply Now →
+</a>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">
+      <div class="logo-icon">A</div>
+      <div class="logo-text">
+        <div class="en">Adarsh College</div>
+        <div class="hi">आदर्श महाविद्यालय</div>
+        <div class="place">Hadiha Kala, Reoti, Ballia</div>
+      </div>
+    </a>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#about"><span>About</span></a></li>
+      <li><a href="#program"><span>Programme</span></a></li>
+      <li><a href="#admissions"><span>Admissions</span></a></li>
+      <li><a href="#faculty"><span>Faculty</span></a></li>
+      <li><a href="#campus"><span>Campus</span></a></li>
+      <li><a href="#contact"><span>Contact</span></a></li>
+    </ul>
+    <button class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ════════ HERO ════════ -->
+<section id="home">
+  <div class="grid-bg"></div>
+  <div class="grid-mask"></div>
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="orb o3"></div>
+
+  <div class="hero-content wrap">
+    <div class="h-badge"></div>Est. 2021 · Jananayak Chandrashekhar University Affiliated
+
+    <div class="h-title">
+      <span class="line1">Adarsh College</span>
+      <span class="line2">आदर्श महाविद्यालय</span>
+    </div>
+    <span class="h-address">Hadiha Kala, Reoti, Ballia · हरिया कला, रेवती, बलिया</span>
+
+    <p class="h-tagline">
+      Where <strong>ambition meets opportunity</strong> — shaping scholars,
+      leaders and compassionate citizens for a rapidly evolving world.
+    </p>
+
+    <div class="h-btns">
+      <a href="#onlineForm" class="btn-primary2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Apply for Admission
+      </a>
+      <a href="#contact" class="btn-ghost2">
+        Contact Us
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    <div class="scroll-line"></div>
+    <span>Scroll to explore</span>
+  </div>
+</section>
+
+<!-- A NEW ERA OF LEARNING — PHOTO SECTION -->
+<section class="era-section" id="era">
+  <div class="era-wrap">
+    <div class="era-header reveal2">
+      <div class="era-label">✦ Our Campus</div>
+      <h2 class="era-title">A New Era of <em>Learning</em></h2>
+      <p class="era-subtitle">Witness the pride, spirit and ambition that defines Adarsh College — where every student carries the flag of a brighter future.</p>
+    </div>
+
+    <div class="photo-mosaic reveal2">
+      <div class="photo-main">
+        <img src="IMG_5026.JPG.jpeg" alt="Adarsh College students on Independence Day"/>
+        <div class="photo-main-overlay">
+          <div class="photo-tag">📍 Hadiha Kala, Reoti, Ballia</div>
+          <h3>आदर्श महाविद्यालय</h3>
+          <p>Students celebrating Independence Day in front of the college building.</p>
+        </div>
+      </div>
+      <div class="photo-side">
+        <div class="photo-secondary">
+          <img src="IMG_5028.jpeg" alt="NCC students with Indian flags at Adarsh College"/>
+          <div class="photo-secondary-overlay">
+            <h4>राष्ट्रीय गौरव</h4>
+            <p>NCC students proudly hoisting the Tricolour on the college grounds</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="era-stats">
+      <div class="era-stat"><div class="es-num">1200<span>+</span></div><div class="es-label">Students Enrolled</div></div>
+      <div class="era-stat"><div class="es-num">420</div><div class="es-label">Seats in 1st Year</div></div>
+      <div class="era-stat"><div class="es-num">7</div><div class="es-label">Subjects Offered</div></div>
+      <div class="era-stat"><div class="es-num">2021</div><div class="es-label">Year Established</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ ABOUT ════════ -->
+<section id="about" class="sec subtle-bg">
+  <div class="wrap">
+    <div class="about-grid">
+
+      <div class="reveal2 from-l">
+        <div class="about-visual-wrap">
+          <div class="about-visual">
+            <div class="av-grid"></div>
+            <div class="av-year">2021</div>
+            <div class="av-badge">Est. 2021 · Ballia, U.P.</div>
+            <div class="av-text">
+              <h3>A New Era of Learning</h3>
+              <p>Founded in 2021 to bring quality higher education to the heart of Reoti, Ballia — now home to 1,200 students.</p>
+            </div>
+          </div>
+          <div class="av-chip">
+            <span class="big">A+</span>
+            <span class="sm">Ranked</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="label-tag on-light">Our Story</div>
+        <h2 class="sec-title on-light">About <em>Adarsh College</em></h2>
+        <p class="sec-desc on-light">Established in 2021, Adarsh College has quickly grown into a trusted centre of higher education in Reoti, Ballia — currently serving 1,200 students across three years with a dedicated faculty and strong academic foundation.</p>
+
+        <div class="tl2">
+          <div class="tl2-item reveal2">
+            <div class="tl2-dot"></div>
+            <div>
+              <div class="tl2-yr">2021 — Foundation</div>
+              <div class="tl2-h">The Beginning</div>
+              <p class="tl2-p">Founded with a vision to bring quality higher education to Hadiha Kala, Reoti. Opened with Faculty of Arts, affiliated to Jananayak Chandrashekhar University.</p>
+            </div>
+          </div>
+          <div class="tl2-item reveal2">
+            <div class="tl2-dot"></div>
+            <div>
+              <div class="tl2-yr">2022 — Growth</div>
+              <div class="tl2-h">Expanding Enrolment</div>
+              <p class="tl2-p">Student strength grew steadily. 7 core BA subjects introduced covering humanities and social sciences to meet the needs of Purvanchal students.</p>
+            </div>
+          </div>
+          <div class="tl2-item reveal2">
+            <div class="tl2-dot"></div>
+            <div>
+              <div class="tl2-yr">2024 — Today</div>
+              <div class="tl2-h">1200 Students Strong</div>
+              <p class="tl2-p">Currently 1,200 students enrolled across all three years with 420 first-year seats. A growing community of scholars from across Ballia district.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mv-grid">
+          <div class="mv-card2 reveal2">
+            <div class="mv-card2-icon">🎯</div>
+            <h3>Our Mission</h3>
+            <p>To provide accessible, transformative education that develops intellectual rigour, ethical integrity, and civic responsibility in every student.</p>
+          </div>
+          <div class="mv-card2 reveal2">
+            <div class="mv-card2-icon">🌐</div>
+            <h3>Our Vision</h3>
+            <p>To be the most trusted centre of higher learning in Purvanchal — where every student discovers their purpose and graduates ready to lead.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ PROGRAMME ════════ -->
+<section id="program" class="sec darker-bg">
+  <div class="wrap">
+    <div class="label-tag">Academics</div>
+    <h2 class="sec-title">Bachelor of <em>Arts Programme</em></h2>
+    <p class="sec-desc">A rigorous, three-year journey through the humanities and social sciences that prepares students for competitive examinations, advanced studies, and professional careers.</p>
+
+    <div class="prog-grid">
+      <div>
+        <h3 style="font-weight:600;font-size:1.15rem;color:rgba(255,255,255,0.7);margin-bottom:1.5rem;letter-spacing:0.02em;">Subjects Offered</h3>
+        <div class="subj-grid2">
+          <div class="subj2 reveal2"><h4>🗣️ Hindi / हिन्दी</h4><p>Hindi Language &amp; Literature · हिंदी भाषा एवं साहित्य</p></div>
+          <div class="subj2 reveal2"><h4>🌍 Geography / भूगोल</h4><p>Physical, Human &amp; Economic Geography · भौतिक एवं मानव भूगोल</p></div>
+          <div class="subj2 reveal2"><h4>🏛️ Political Science / राजनीति विज्ञान</h4><p>Indian Constitution &amp; Comparative Politics · भारतीय संविधान</p></div>
+          <div class="subj2 reveal2"><h4>👥 Sociology / समाजशास्त्र</h4><p>Indian Society &amp; Social Theory · भारतीय समाज एवं सिद्धांत</p></div>
+          <div class="subj2 reveal2"><h4>📚 Education / शिक्षाशास्त्र</h4><p>Principles &amp; Practices of Education · शिक्षा के सिद्धांत</p></div>
+          <div class="subj2 reveal2"><h4>🏠 Home Science / गृह विज्ञान</h4><p>Home Management &amp; Nutrition · गृह प्रबंधन एवं पोषण</p></div>
+          <div class="subj2 reveal2"><h4>📜 History / इतिहास</h4><p>Ancient, Medieval &amp; Modern India · प्राचीन, मध्यकालीन एवं आधुनिक भारत</p></div>
+        </div>
+      </div>
+
+      <div class="reveal2 from-r">
+        <div class="info-panel">
+          <div class="ip-title">Programme Details</div>
+          <div class="ip-row"><span class="lbl">Degree</span><span class="val">Bachelor of Arts (BA)</span></div>
+          <div class="ip-row"><span class="lbl">Duration</span><span class="val">3 Years · 6 Semesters</span></div>
+          <div class="ip-row"><span class="lbl">Mode</span><span class="val">Full-time Regular</span></div>
+          <div class="ip-row"><span class="lbl">1st Year Seats</span><span class="val">420</span></div>
+          <div class="ip-row"><span class="lbl">Total Students</span><span class="val">1200 (All 3 Years)</span></div>
+          <div class="ip-row"><span class="lbl">Subjects Offered</span><span class="val">7 Subjects</span></div>
+          <div class="ip-row"><span class="lbl">Affiliation</span><span class="val">Jananayak Chandrashekhar Univ.</span></div>
+          <div class="ip-row"><span class="lbl">Medium</span><span class="val">Hindi</span></div>
+          <div class="ip-row"><span class="lbl">Established</span><span class="val">2021</span></div>
+
+          <p style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:1.5rem;margin-bottom:0.5rem;">Eligibility</p>
+          <ul class="elig2">
+            <li>Passed 10+2 from any recognised Board</li>
+            <li>Minimum 45% aggregate (40% SC/ST)</li>
+            <li>All streams eligible</li>
+            <li>Age 17–25 yrs (relaxation as per norms)</li>
+          </ul>
+
+          <div class="career-pills" style="margin-top:1.5rem;">
+            <p style="width:100%;font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.4rem;">Career Paths</p>
+            <span class="cpill">IAS / PCS</span>
+            <span class="cpill">Teaching / B.Ed</span>
+            <span class="cpill">Law / LLB</span>
+            <span class="cpill">Journalism</span>
+            <span class="cpill">MBA</span>
+            <span class="cpill">Banking / SSC</span>
+            <span class="cpill">Social Work</span>
+            <span class="cpill">Research / MA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ ADMISSIONS ════════ -->
+<section id="admissions" class="sec light-bg">
+  <div class="wrap">
+    <div class="label-tag on-light">Join Us</div>
+    <h2 class="sec-title on-light">Admissions <em>2025–26</em></h2>
+    <p class="sec-desc on-light">Applications are now open for the academic year 2025–26. Follow the steps below to secure your place at Adarsh College.</p>
+
+    <div class="adm-grid">
+      <div>
+        <h3 style="font-weight:700;font-size:1.3rem;color:var(--navy);margin-bottom:2rem;">Admission Process</h3>
+        <div class="step2-list">
+          <div class="step2 reveal2"><div class="step2-num">1</div><div class="step2-body"><h4>Register &amp; Collect Form</h4><p>Visit the college office or register online to receive your application form and unique ID.</p></div></div>
+          <div class="step2 reveal2"><div class="step2-num">2</div><div class="step2-body"><h4>Fill Application</h4><p>Complete all sections — personal details, academic history, and subject preferences.</p></div></div>
+          <div class="step2 reveal2"><div class="step2-num">3</div><div class="step2-body"><h4>Submit Documents</h4><p>Attach self-attested photocopies of all required documents listed alongside.</p></div></div>
+          <div class="step2 reveal2"><div class="step2-num">4</div><div class="step2-body"><h4>Pay Application Fee</h4><p>Admission form is free of charge. No application fee required.</p></div></div>
+          <div class="step2 reveal2"><div class="step2-num">5</div><div class="step2-body"><h4>Merit List &amp; Counselling</h4><p>Check the merit list on the notice board. Attend counselling for subject allotment.</p></div></div>
+          <div class="step2 reveal2"><div class="step2-num">6</div><div class="step2-body"><h4>Enrolment</h4><p>Pay tuition fee and submit original documents to complete your enrolment.</p></div></div>
+        </div>
+
+        <h3 style="font-weight:700;font-size:1.2rem;color:var(--navy);margin:2.5rem 0 1rem;">Important Dates</h3>
+        <table class="dtable reveal2">
+          <thead><tr><th>Event</th><th>Date</th></tr></thead>
+          <tbody>
+            <tr><td>Form Release</td><td>10 April 2026</td></tr>
+            <tr><td>Last Date to Apply</td><td>25 May 2026</td></tr>
+            <tr><td>First Merit List</td><td></td></tr>
+            <tr><td>Counselling – Round 1</td><td></td></tr>
+            <tr><td>Second Merit List</td><td></td></tr>
+            <tr><td>Fee Payment Deadline</td><td></td></tr>
+            <tr><td>Classes Begin</td><td> July 2025</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-weight:700;font-size:1.2rem;color:var(--navy);margin:2rem 0 1rem;">Required Documents</h3>
+        <ul class="docs2 reveal2">
+          <li>Class 10 Marksheet &amp; Certificate</li>
+          <li>Class 12 Marksheet &amp; Certificate</li>
+          <li>Transfer Certificate (TC)</li>
+          <li>Character Certificate</li>
+          <li>Caste Certificate (if applicable)</li>
+          <li>Income Certificate (for concession)</li>
+          <li>Passport-size photographs × 6</li>
+          <li>Aadhar Card / Government ID</li>
+        </ul>
+      </div>
+
+      <div>
+        <div id="onlineForm" class="form-card2 reveal2 from-r" style="padding:0;overflow:hidden;background:white;"></div>
+          <div style="padding:1.8rem 2rem 1rem;border-bottom:1px solid rgba(41,121,255,0.1);">
+            <h3 style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--navy);font-weight:400;margin:0;">Online Application Form</h3>
+            <p style="font-size:0.82rem;color:#55668a;margin-top:6px;">Powered by Google Forms — your data is saved securely in Google Sheets.</p>
+          </div>
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSdAwqhNBHduHkgNwM4JnCGZUvXpM89Z1VMm0aHGQ17SjPcvwQ/viewform?embedded=true"
+            width="100%"
+            height="900"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            style="display:block;"
+          >Loading form…</iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FACULTY ════════ -->
+<section id="faculty" class="sec dark-bg">
+  <div class="wrap">
+    <div class="label-tag">Our Educators</div>
+    <h2 class="sec-title">Distinguished <em>Faculty</em></h2>
+    <p class="sec-desc">Accomplished scholars and researchers dedicated to inspiring the next generation of thinkers.</p>
+    <div class="fac-grid">
+      <div class="fac-card reveal2"><div class="fac-photo fb1"><div class="fav">PG</div></div><div class="fac-body"><h3>Prof. Priya Gupta</h3><div class="fac-desg">Head of Department</div><div class="fac-dept">History</div><div class="fac-qual">Ph.D. (BHU) · M.Phil. · 22 yrs</div><div class="fac-tags2"><span class="ftag2">Ancient India</span><span class="ftag2">Epigraphy</span></div></div></div>
+      <div class="fac-card reveal2"><div class="fac-photo fb2"><div class="fav">RV</div></div><div class="fac-body"><h3>Dr. Rajan Verma</h3><div class="fac-desg">Associate Professor</div><div class="fac-dept">Political Science</div><div class="fac-qual">Ph.D. · NET · 15 yrs</div><div class="fac-tags2"><span class="ftag2">Indian Politics</span><span class="ftag2">IR Theory</span></div></div></div>
+      <div class="fac-card reveal2"><div class="fac-photo fb3"><div class="fav">AM</div></div><div class="fac-body"><h3>Dr. Anjali Mehta</h3><div class="fac-desg">Assistant Professor</div><div class="fac-dept">English Literature</div><div class="fac-qual">Ph.D. · NET · 12 yrs</div><div class="fac-tags2"><span class="ftag2">Postcolonial Lit.</span><span class="ftag2">Feminism</span></div></div></div>
+      <div class="fac-card reveal2"><div class="fac-photo fb4"><div class="fav">SK</div></div><div class="fac-body"><h3>Prof. Suresh Kumar</h3><div class="fac-desg">Professor &amp; Dean</div><div class="fac-dept">Sociology</div><div class="fac-qual">Ph.D. · M.Phil. · 28 yrs</div><div class="fac-tags2"><span class="ftag2">Caste Studies</span><span class="ftag2">Rural Sociology</span></div></div></div>
+      <div class="fac-card reveal2"><div class="fac-photo fb5"><div class="fav">NS</div></div><div class="fac-body"><h3>Dr. Nandita Sen</h3><div class="fac-desg">Associate Professor</div><div class="fac-dept">Psychology</div><div class="fac-qual">Ph.D. · NET · 10 yrs</div><div class="fac-tags2"><span class="ftag2">Counselling</span><span class="ftag2">Child Psych.</span></div></div></div>
+      <div class="fac-card reveal2"><div class="fac-photo fb6"><div class="fav">AT</div></div><div class="fac-body"><h3>Dr. Arun Tiwari</h3><div class="fac-desg">Assistant Professor</div><div class="fac-dept">Economics</div><div class="fac-qual">Ph.D. · M.Phil. · 8 yrs</div><div class="fac-tags2"><span class="ftag2">Dev. Economics</span><span class="ftag2">Econometrics</span></div></div></div>
+      <div class="fac-card reveal2"><div class="fac-photo fb7"><div class="fav">MR</div></div><div class="fac-body"><h3>Prof. Meera Rao</h3><div class="fac-desg">Senior Professor</div><div class="fac-dept">Geography</div><div class="fac-qual">Ph.D. · 20 yrs</div><div class="fac-tags2"><span class="ftag2">GIS &amp; Mapping</span><span class="ftag2">Urban Geog.</span></div></div></div>
+      <div class="fac-card reveal2"><div class="fac-photo fb8"><div class="fav">VB</div></div><div class="fac-body"><h3>Dr. Vikram Bose</h3><div class="fac-desg">Associate Professor</div><div class="fac-dept">Philosophy</div><div class="fac-qual">Ph.D. · 14 yrs</div><div class="fac-tags2"><span class="ftag2">Ethics</span><span class="ftag2">Indian Philosophy</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CAMPUS ════════ -->
+<section id="campus" class="sec light-bg">
+  <div class="wrap">
+    <div class="label-tag on-light">Campus Life</div>
+    <h2 class="sec-title on-light">Life at <em>Adarsh College</em></h2>
+    <p class="sec-desc on-light">A vibrant 20-acre campus designed to inspire curiosity, build character, and cultivate lasting friendships.</p>
+    <div class="campus-grid2" style="grid-template-columns:repeat(3,1fr);">
+      <div class="campus-card2 reveal2"><div class="cc-top cc1b"><div class="cc-emoji">📚</div></div><div class="cc-body"><h3>Library / पुस्तकालय</h3><p>The college has a well-stocked library providing students access to textbooks, reference materials, and academic resources across all subjects.</p></div></div>
+      <div class="campus-card2 reveal2"><div class="cc-top cc2b"><div class="cc-emoji">⚽</div></div><div class="cc-body"><h3>Sports / खेलकूद</h3><p>Football, volleyball, basketball, badminton, kabaddi and athletics. Annual inter-college sports competitions are held to encourage student participation.</p></div></div>
+      <div class="campus-card2 reveal2"><div class="cc-top cc3b"><div class="cc-emoji">🎭</div></div><div class="cc-body"><h3>Cultural Activities / सांस्कृतिक कार्यक्रम</h3><p>Annual cultural fest celebrating music, drama, debate, and folk arts. Active student clubs for fine arts, photography, and creative activities.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CONTACT ════════ -->
+<section id="contact" class="sec darker-bg">
+  <div class="wrap">
+    <div class="label-tag">Get in Touch</div>
+    <h2 class="sec-title">Contact <em>Us</em></h2>
+    <p class="sec-desc">Whether you have a question about admissions, want to visit campus, or simply want to know more — we're here to help.</p>
+    <div class="contact-grid2">
+      <div class="reveal2 from-l">
+        <div class="ci2">
+          <div class="ci2-icon">📍</div>
+          <div>
+            <h4>Address</h4>
+            <p>Adarsh College (आदर्श महाविद्यालय)<br>Hadiha Kala, Reoti, Ballia<br>हरिया कला, रेवती, बलिया — 277 302<br>Uttar Pradesh, India</p>
+          </div>
+        </div>
+        <div class="ci2">
+          <div class="ci2-icon">📞</div>
+          <div>
+            <h4>Phone</h4>
+            <p>+91 XXXXX XXXXX (Principal's Office)<br>+91 XXXXX XXXXX (Admissions Cell)</p>
+          </div>
+        </div>
+        <div class="ci2">
+          <div class="ci2-icon">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <p>info@adarshmahavidy.ac.in<br>admissions@adarshmahavidy.ac.in</p>
+          </div>
+        </div>
+        <div class="ci2">
+          <div class="ci2-icon">🕐</div>
+          <div>
+            <h4>Office Hours</h4>
+            <p>Monday – Saturday: 9:00 AM – 5:00 PM<br>Sunday: Closed</p>
+          </div>
+        </div>
+        <div class="map-wrap">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.5!2d84.35584937909555!3d25.891318711915986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDUzJzI4LjciTiA4NMKwMjEnMjEuMSJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+
+   <div class="reveal2 from-r" style="border-radius:14px;overflow:hidden;border:1px solid var(--border);background:var(--glass2);backdrop-filter:blur(10px);">
+  <div style="padding:1.8rem 2rem 1rem;border-bottom:1px solid var(--border);">
+    <h3 style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:white;font-weight:400;margin:0;">Send a Message</h3>
+    <p style="font-size:0.82rem;color:var(--muted);margin-top:6px;">Powered by Google Forms — your message reaches us directly.</p>
+  </div>
+  <iframe
+    src="https://docs.google.com/forms/d/e/1FAIpQLSf_W6Va7Y_350WbY7WHYNTRaH1IsuNi-UUa4j641nIkeedYTw/viewform?embedded=true"
+    width="100%"
+    height="780"
+    frameborder="0"
+    marginheight="0"
+    marginwidth="0"
+    style="display:block;background:transparent;"
+  >Loading form…</iframe>
+</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="en2">Adarsh College</div>
+    <span class="hi2">आदर्श महाविद्यालय · Hadiha Kala, Reoti, Ballia</span>
+  </div>
+  <div class="footer-mid">© 2025 Adarsh College · Affiliated to Jananayak Chandrashekhar University ·</div>
+  <div class="footer-nav">
+    <a href="#about">About</a>
+    <a href="#program">Programme</a>
+    <a href="#admissions">Admissions</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<div id="toastMsg"></div>
+
+<script>
+/* cursor removed */
+
+/* ── NAV ── */
+const nav = document.getElementById('mainNav');
+const ham = document.getElementById('hamburger');
+const menu = document.getElementById('navMenu');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+  // active link
+  let cur = '';
+  document.querySelectorAll('section[id]').forEach(s=>{
+    if(window.scrollY >= s.offsetTop - 90) cur = s.id;
+  });
+  document.querySelectorAll('.nav-menu a').forEach(a=>{
+    a.classList.toggle('active', a.getAttribute('href')==='#'+cur);
+  });
+},{passive:true});
+
+ham.addEventListener('click',()=>{
+  menu.classList.toggle('open');
+  ham.querySelectorAll('span')[0].style.transform = menu.classList.contains('open')?'rotate(45deg) translate(4px,4px)':'';
+  ham.querySelectorAll('span')[1].style.opacity = menu.classList.contains('open')?'0':'1';
+  ham.querySelectorAll('span')[2].style.transform = menu.classList.contains('open')?'rotate(-45deg) translate(4px,-4px)':'';
+});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+
+/* ── SCROLL REVEAL ── */
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('vis');
+      // stagger child reveals
+      e.target.querySelectorAll('.reveal2').forEach((c,i)=>{
+        setTimeout(()=>c.classList.add('vis'), i*90);
+      });
+    }
+  });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+
+document.querySelectorAll('.label-tag,.sec-title,.sec-desc,.reveal2').forEach(el=>obs.observe(el));
+
+/* ── TOAST ── */
+function showToast(msg){
+  const t = document.getElementById('toastMsg');
+  t.innerHTML = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 4200);
+}
+
+/* ── FORMS ── */
+function handleAdm(e){
+  e.preventDefault();
+  showToast('✓ Application submitted!<br><small style="opacity:0.6">You\'ll receive confirmation shortly.</small>');
+  e.target.reset();
+}
+function handleContact(e){
+  e.preventDefault();
+  showToast('✓ Message received!<br><small style="opacity:0.6">We\'ll get back within 1–2 working days.</small>');
+  e.target.reset();
+}
+
+/* particles removed for stability */
+</script>
+</body>
+</html>
